@@ -1,20 +1,20 @@
 package com.ebankify.api.entity;
 
-import com.ebankify.api.entity.enums.LoanStatus;
+import com.ebankify.api.enums.LoanStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name = "loans", indexes = {
-        @Index(name = "idx_loan_id", columnList = "id")
-})
+@Table(name = "loans")
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
