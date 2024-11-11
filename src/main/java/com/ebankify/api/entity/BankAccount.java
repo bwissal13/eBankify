@@ -1,38 +1,34 @@
 package com.ebankify.api.entity;
 
-import com.ebankify.api.entity.enums.AccountStatus;
+import com.ebankify.api.enums.AccountStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name = "bank_accounts", indexes = {
-        @Index(name = "idx_bankaccount_id", columnList = "id, account_number")
-})
+@Table(name = "bank_accounts")
 public class BankAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "account_number", nullable = false, unique = true, updatable = false)
-    private UUID accountNumber;
-
-    @Column(name = "balance", nullable = false)
+    private String accountNumber;
     private double balance;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private AccountStatus status = AccountStatus.ACTIVE;
+    private AccountStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -52,12 +48,7 @@ public class BankAccount {
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
-        this.accountNumber = UUID.randomUUID();
     }
 
-    @PreUpdate
-    protected void onUpdate() {
-        this.updatedAt = LocalDateTime.now();
-    }
 
 }
