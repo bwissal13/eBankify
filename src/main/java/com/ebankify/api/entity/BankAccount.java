@@ -1,6 +1,6 @@
 package com.ebankify.api.entity;
 
-import com.ebankify.api.entity.enums.AccountStatus;
+import com.ebankify.api.enums.AccountStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

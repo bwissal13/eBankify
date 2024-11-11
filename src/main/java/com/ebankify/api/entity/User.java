@@ -1,7 +1,7 @@
 package com.ebankify.api.entity;
 
 
-import com.ebankify.api.entity.enums.Role;
+import com.ebankify.api.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;

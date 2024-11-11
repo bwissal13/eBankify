@@ -2,7 +2,7 @@ package com.ebankify.api.service.transaction;
 
 import com.ebankify.api.entity.BankAccount;
 import com.ebankify.api.entity.Transaction;
-import com.ebankify.api.entity.enums.TransactionType;
+import com.ebankify.api.enums.TransactionType;
 import com.ebankify.api.exception.transactions.TransactionNotFoundException;
 import com.ebankify.api.repository.TransactionRepository;
 import com.ebankify.api.util.BankAccountUtils;
