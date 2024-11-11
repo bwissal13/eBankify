@@ -41,5 +41,5 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
    ```bash
-   https://github.com/khalid-oukha/eBankify-Banking-System-REST-API.git
+https://github.com/bwissal13/eBankify.git
    ````
