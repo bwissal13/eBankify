@@ -40,6 +40,4 @@ Before you begin, ensure you have met the following requirements:
 ### Installation
 
 1. Clone the repository:
-   ```bash
-https://github.com/bwissal13/eBankify.git
-   ````
+   ```bash https://github.com/bwissal13/eBankify.git ````
