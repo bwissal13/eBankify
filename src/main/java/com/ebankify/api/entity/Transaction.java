@@ -1,22 +1,21 @@
 package com.ebankify.api.entity;
 
-import com.ebankify.api.entity.enums.TransactionStatus;
-import com.ebankify.api.entity.enums.TransactionType;
+import com.ebankify.api.enums.TransactionStatus;
+import com.ebankify.api.enums.TransactionType;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 @Entity
-@Table(name = "transactions", indexes = {
-        @Index(name = "idx_transaction_id", columnList = "id")
-})
+@Table(name = "transactions")
 public class Transaction {
 
     @Id

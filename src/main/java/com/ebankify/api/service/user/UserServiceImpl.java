@@ -1,12 +1,14 @@
 package com.ebankify.api.service.user;
 
+import com.ebankify.api.commons.ApiResponse;
+import com.ebankify.api.dto.user.UserRequestDTO;
+import com.ebankify.api.dto.user.UserResponseDTO;
 import com.ebankify.api.entity.User;
 import com.ebankify.api.exception.user.UserAlreadyExistsException;
 import com.ebankify.api.exception.user.UserNotFoundException;
 import com.ebankify.api.repository.UserRepository;
-import com.ebankify.api.web.dto.user.UserRequestDTO;
-import com.ebankify.api.web.dto.user.UserResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,5 +64,4 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
-
 }

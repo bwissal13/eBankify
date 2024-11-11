@@ -1,10 +1,12 @@
 package com.ebankify.api.entity;
 
 
-import com.ebankify.api.entity.enums.Role;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ebankify.api.enums.Role;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,12 +18,9 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name = "users", indexes = {
-        @Index(name = "idx_user_id", columnList = "id")
-})
+@Table(name = "users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,7 +37,6 @@ public class User implements UserDetails {
     private int age;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonIgnore
     private List<BankAccount> accounts;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
