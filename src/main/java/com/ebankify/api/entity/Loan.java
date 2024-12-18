@@ -52,7 +52,8 @@ public class Loan {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-
+    @Column(nullable = false)
+    private Double interestRate= 0.05;
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
