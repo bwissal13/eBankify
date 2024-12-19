@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven' // Replace 'Maven' with the actual name of your Maven installation in Jenkins
+        maven 'Maven'
     }
 
     environment {
@@ -107,16 +107,17 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            cleanWs()
-        }
+post {
         success {
-            echo 'Pipeline executed successfully!'
+            mail to: 'baazizwissal13@gmail.com',
+                 subject: "Pipeline Success - eBankify",
+                 body: "Le pipeline Jenkins s'est terminé avec succès !"
         }
         failure {
-            echo 'Pipeline execution failed!'
+            mail to: 'baazizwissal13@gmail.com',
+                 subject: "Pipeline Failure - eBankify",
+                 body: "Le pipeline Jenkins a échoué. Veuillez vérifier les logs."
         }
     }
+
 }
